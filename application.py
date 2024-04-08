@@ -4,7 +4,7 @@ import pickle
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open("Model/modelForPrediction.pkl", "rb"))
+model = pickle.load(open("Model/ModelForPrediction.pkl", "rb"))
 
 def preprocess_input(carat, cut, color, clarity, depth, table, x, y, z):
     # Define mapping dictionaries
