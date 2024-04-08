@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template, redirect
+from flask_cors import CORS, cross_origin
 import pickle
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the trained model
 model = pickle.load(open("Model/ModelForPrediction.pkl", "rb"))
@@ -25,11 +27,13 @@ def preprocess_input(carat, cut, color, clarity, depth, table, x, y, z):
 
 # Route for landing directly on prediction form
 @app.route('/')
+@cross_origin()
 def index():
     return redirect('/predict')
 
 # Route for prediction form page
 @app.route('/predict', methods=['GET', 'POST'])
+@cross_origin()
 def predict_form():
     if request.method == 'POST':
         # Get input data from form
@@ -55,4 +59,4 @@ def predict_form():
     return render_template('form.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
