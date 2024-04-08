@@ -8,7 +8,7 @@ This project aims to predict the price of gemstones using machine learning techn
 
 To access the deployed application, simply visit the following link:
 
-Gemstone Price Prediction
+[Gemstone Price Prediction](https://gemstone-price-prediction-6x5z.onrender.com)
 
 # Project Structure
 
